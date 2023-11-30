@@ -17,14 +17,14 @@ class ProductDetails extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              // Handle back button press
+
               Navigator.pop(context);
             },
           ),
           actions: [
             IconButton(
               onPressed: () {
-                // Handle favorite button press
+
               },
               icon: const Icon(Icons.favorite, color: Colors.red),
             ),
@@ -49,7 +49,7 @@ class ProductDetails extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Product Description
+
                       Text(
                         "These Red hues look even better now than they did 30 years ago. An homage to heritage, the special edition AJXXXVIII “Aqua” reimagines one of the most coveted AJ8 colorways of all time—it even has the iconic tongue patch. All the game-ready tech you expect is there too, like low-to-the-court cushioning and a secure upper that helps support every move. Dive in"
 
@@ -61,7 +61,7 @@ class ProductDetails extends StatelessWidget {
                       ),
                       const SizedBox(height: 10,),
 
-                      // Product Price
+
                       Text(
                         '\$99.99',
                         style: TextStyle(
@@ -72,15 +72,14 @@ class ProductDetails extends StatelessWidget {
                       ),
                       const SizedBox(height: 20,),
 
-                      // Buy Now Button
+
                       ElevatedButton(
                         onPressed: () {
-                          // Handle buy now button press
-                          // Navigate to the second page
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SecondPage(),
+                              builder: (context) => BuyNowPage(),
                             ),
                           );
                         },

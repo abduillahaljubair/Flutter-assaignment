@@ -1,56 +1,64 @@
 import 'package:flutter/material.dart';
-import 'PaymentButton.dart';
+import 'package:last/PaymentButton.dart';
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
+class BuyNowPage extends StatelessWidget {
+  const BuyNowPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Choose Payment Method'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.green.shade500,
+        appBar: AppBar(
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: const Text("Choose Payment Method"),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Choose Payment Method Section
-            Row(
+
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                PaymentButton(imagePath: 'assets/bkash.png', label: 'BKash'),
-                PaymentButton(imagePath: 'assets/rocket.png', label: 'Rocket'),
-                PaymentButton(imagePath: 'assets/visa.png', label: 'Visa'),
-                PaymentButton(imagePath: 'assets/mastercard.png', label: 'Mastercard'),
-                PaymentButton(imagePath: 'assets/amex.png', label: 'AmEx'),
+                PaymentButton(imagePath: 'assets/bkash.jpg',),
+                PaymentButton(imagePath: 'assets/rocket.jpg'),
+                PaymentButton(imagePath: 'assets/visa.jpg'),
+                PaymentButton(imagePath: 'assets/mastercard.jpg'),
+                PaymentButton(imagePath: 'assets/amex.jpg'),
               ],
             ),
 
-            const SizedBox(height: 20),
 
-            // Dropdown Button
-            DropdownButton<String>(
-              items: ['Option 1', 'Option 2', 'Option 3']
-                  .map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                // Handle dropdown value change
-              },
-              hint: Text('Select an option'),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: DropdownButton<String>(
+                items: <String>['bkash', 'rocket', 'visa','mastercad','amex'].map((
+                    String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
 
+                },
+                hint: Text('Select an option'),
+              ),
             ),
 
-            const SizedBox(height: 20),
-
-            // Go Back Button
+            // Go Back button
             ElevatedButton(
               onPressed: () {
-                // Handle go back button press
+
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
