@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'secondpage.dart';
+import 'PaymentButton.dart';
 class ProductDetails extends StatelessWidget {
   const ProductDetails({Key? key}) : super(key: key);
 
@@ -16,13 +17,14 @@ class ProductDetails extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-
+              // Handle back button press
+              Navigator.pop(context);
             },
           ),
           actions: [
             IconButton(
               onPressed: () {
-
+                // Handle favorite button press
               },
               icon: const Icon(Icons.favorite, color: Colors.red),
             ),
@@ -49,16 +51,17 @@ class ProductDetails extends StatelessWidget {
                     children: [
                       // Product Description
                       Text(
-                        "These blue hues look even better now than they did 30 years ago. An homage to heritage, the special edition AJXXXVIII “Aqua” reimagines one of the most coveted AJ8 colorways of all time—it even has the iconic tongue patch. All the game-ready tech you expect is there too, like low-to-the-court cushioning and a secure upper that helps support every move. Dive in"
+                        "These Red hues look even better now than they did 30 years ago. An homage to heritage, the special edition AJXXXVIII “Aqua” reimagines one of the most coveted AJ8 colorways of all time—it even has the iconic tongue patch. All the game-ready tech you expect is there too, like low-to-the-court cushioning and a secure upper that helps support every move. Dive in"
 
-                  "Shown: Black/Bright Concord/Aquatone/True Red"
-                  "Style: DZ3356-001",
+                            "Shown: Black/Bright Concord/Aquatone/True Red"
+                            "Style: DZ3356-001",
                         style: TextStyle(
                           color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 10,),
 
+                      // Product Price
                       Text(
                         '\$99.99',
                         style: TextStyle(
@@ -69,9 +72,17 @@ class ProductDetails extends StatelessWidget {
                       ),
                       const SizedBox(height: 20,),
 
+                      // Buy Now Button
                       ElevatedButton(
                         onPressed: () {
-
+                          // Handle buy now button press
+                          // Navigate to the second page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SecondPage(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
